@@ -3,9 +3,6 @@
 #include <string>
 #include <list>
 #include "dcmtk/dcmnet/dstorscu.h"
-#include "dcmtk/dcmjpeg/djdecode.h"
-#include "dcmtk/dcmjpls/djdecode.h"
-#include "dcmtk/dcmdata/dcrledrg.h"
 
 using namespace std;
 

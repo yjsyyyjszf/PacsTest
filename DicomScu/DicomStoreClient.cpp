@@ -1,4 +1,7 @@
 #include "DicomStoreClient.h"
+#include "dcmtk/dcmjpeg/djdecode.h"
+#include "dcmtk/dcmjpls/djdecode.h"
+#include "dcmtk/dcmdata/dcrledrg.h"
 
 DicomStoreClient::DicomStoreClient(string serverHost, int serverPort, string serverAeTitle, string clientAeTitle)
 {
@@ -14,9 +17,9 @@ DicomStoreClient::DicomStoreClient(string serverHost, int serverPort, string ser
 
 bool DicomStoreClient::Store(const list<string>& filePaths)
 {
-	for (list<string>::const_iterator filePath = filePaths.begin(); filePath != filePaths.end(); ++filePath)
+	for (auto pFilePath = filePaths.begin(); pFilePath != filePaths.end(); ++pFilePath)
 	{
-		addDicomFile(filePath->c_str(), E_FileReadMode::ERM_autoDetect);
+		addDicomFile(pFilePath->c_str(), E_FileReadMode::ERM_autoDetect);
 	}
 
 	bool ok = true;
